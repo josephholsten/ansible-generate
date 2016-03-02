@@ -1,0 +1,29 @@
+---
+- file: state=directory name="{{role_dir}}"
+
+- template: src=travis.yml.j2 dest="{{role_dir}}/.travis.yml"
+- template: src=README.md.j2 dest="{{role_dir}}/README.md"
+
+
+- file: state=directory name="{{role_dir}}/defaults"
+- template: src=defaults.yml.j2 dest="{{role_dir}}/defaults/main.yml"
+
+- file: state=directory name="{{role_dir}}/files"
+
+- file: state=directory name="{{role_dir}}/handlers"
+- template: src=handlers.yml.j2 dest="{{role_dir}}/handlers/main.yml"
+
+- file: state=directory name="{{role_dir}}/meta"
+- template: src=meta.yml.j2 dest="{{role_dir}}/meta/main.yml"
+
+- file: state=directory name="{{role_dir}}/tasks"
+- template: src=tasks.yml.j2 dest="{{role_dir}}/tasks/main.yml"
+
+- file: state=directory name="{{role_dir}}/templates"
+
+- file: state=directory name="{{role_dir}}/tests"
+- template: src=inventory.j2 dest="{{role_dir}}/tests/inventory"
+- template: src=test.yml.j2 dest="{{role_dir}}/tests/test.yml"
+
+- file: state=directory name="{{role_dir}}/vars"
+- template: src=vars.yml.j2 dest="{{role_dir}}/vars/main.yml"
